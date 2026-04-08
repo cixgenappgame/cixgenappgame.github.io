@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Studios | Kiến Tạo Thế Giới Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --dark: #0f172a;
+            --accent: #f43f5e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-gaming {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center rotate-45">
+                    <i class="fas fa-gamepad text-white -rotate-45 text-xl"></i>
+                </div>
+                <span class="text-2xl font-bold font-gaming tracking-tighter uppercase">Nexus<span class="text-cyan-400">Studios</span></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8 uppercase text-sm font-semibold tracking-widest">
+                <a href="#home" class="nav-link">Trang Chủ</a>
+                <a href="#about" class="nav-link">Giới Thiệu</a>
+                <a href="#games" class="nav-link">Trò Chơi</a>
+                <a href="#careers" class="nav-link">Tuyển Dụng</a>
+                <a href="#contact" class="nav-link">Liên Hệ</a>
+            </nav>
+
+            <button class="md:hidden text-white" onclick="toggleMenu()">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-slate-900 z-[60] hidden flex-col items-center justify-center space-y-8 text-2xl font-gaming">
+        <button class="absolute top-6 right-6" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="#home" onclick="toggleMenu()">Trang Chủ</a>
+        <a href="#about" onclick="toggleMenu()">Giới Thiệu</a>
+        <a href="#games" onclick="toggleMenu()">Trò Chơi</a>
+        <a href="#contact" onclick="toggleMenu()">Liên Hệ</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="text-cyan-400 font-gaming tracking-widest uppercase">Thế hệ giải trí mới</h2>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                    Kiến tạo <span class="gradient-text">Vũ Trụ</span> Ảo Diệu
+                </h1>
+                <p class="text-slate-400 text-lg max-w-lg">
+                    Chúng tôi không chỉ làm game, chúng tôi xây dựng những trải nghiệm thay đổi cuộc sống. Nơi công nghệ gặp gỡ nghệ thuật kể chuyện đỉnh cao.
+                </p>
+                <div class="flex space-x-4 pt-4">
+                    <a href="#games" class="px-8 py-3 bg-cyan-500 text-slate-900 font-bold rounded-full btn-glow transition-all uppercase tracking-wider">Khám phá ngay</a>
+                    <a href="#contact" class="px-8 py-3 border border-slate-600 hover:border-cyan-500 rounded-full transition-all uppercase tracking-wider">Hợp tác</a>
+                </div>
+            </div>
+            <div class="hidden md:block relative">
+                <div class="absolute -inset-4 bg-cyan-500/20 blur-3xl rounded-full"></div>
+                <img src="https://images.unsplash.com/photo-1552824734-80607f76593c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Game Concept" class="rounded-2xl shadow-2xl relative z-10 border border-slate-700">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-gaming">Tại sao chọn Nexus?</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-colors">
+                    <i class="fas fa-bolt text-4xl text-cyan-400 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3 font-gaming">Công Nghệ Đỉnh Cao</h3>
+                    <p class="text-slate-400">Sử dụng Unreal Engine 5 và AI để tạo ra môi trường chân thực nhất có thể.</p>
+                </div>
+                <div class="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-colors">
+                    <i class="fas fa-users text-4xl text-pink-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3 font-gaming">Cộng Đồng Ưu Tiên</h3>
+                    <p class="text-slate-400">Mọi tính năng đều được phát triển dựa trên phản hồi thực tế từ hàng triệu người chơi.</p>
+                </div>
+                <div class="p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-colors">
+                    <i class="fas fa-trophy text-4xl text-yellow-500 mb-6"></i>
+                    <h3 class="text-xl font-bold mb-3 font-gaming">Giải Thưởng Quốc Tế</h3>
+                    <p class="text-slate-400">Tự hào sở hữu 15 giải thưởng "Game of the Year" trong suốt 5 năm qua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 font-gaming uppercase tracking-tighter">Các Dự Án <span class="text-cyan-400">Nổi Bật</span></h2>
+                    <p class="text-slate-400">Những tựa game đang làm mưa làm gió trên thị trường toàn cầu.</p>
+                </div>
+                <a href="#" class="mt-4 md:mt-0 text-cyan-400 hover:underline font-bold">Xem tất cả <i class="fas fa-arrow-right ml-2"></i></a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Game 1 -->
+                <div class="game-card bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1614732414444-096e5f1122d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cyber Warfare" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-cyan-500 text-slate-900 px-3 py-1 rounded-full text-xs font-bold uppercase">Mới ra mắt</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 font-gaming">CYBER WARFARE</h3>
+                        <p class="text-slate-400 text-sm mb-4">Game bắn súng góc nhìn thứ nhất với bối cảnh tương lai 2099.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">PC / PS5 / XBOX</span>
+                            <button class="text-cyan-400 hover:text-white transition-colors"><i class="fas fa-plus-circle text-2xl"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 2 -->
+                <div class="game-card bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lost Realm" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 font-gaming">LOST REALM</h3>
+                        <p class="text-slate-400 text-sm mb-4">Hành trình khám phá lục địa bị lãng quên trong thế giới mở RPG.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Mobile / Tablet</span>
+                            <button class="text-cyan-400 hover:text-white transition-colors"><i class="fas fa-plus-circle text-2xl"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game 3 -->
+                <div class="game-card bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Racing Fury" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2 font-gaming">RACING FURY</h3>
+                        <p class="text-slate-400 text-sm mb-4">Đua xe tốc độ cao với đồ họa 8K siêu chân thực.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-500">PC / Console</span>
+                            <button class="text-cyan-400 hover:text-white transition-colors"><i class="fas fa-plus-circle text-2xl"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gradient-to-r from-cyan-900/50 to-purple-900/50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-white mb-2 font-gaming">50M+</div>
+                    <div class="text-cyan-400 text-sm uppercase tracking-widest">Người chơi</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-white mb-2 font-gaming">120+</div>
+                    <div class="text-cyan-400 text-sm uppercase tracking-widest">Nhân sự</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-white mb-2 font-gaming">20+</div>
+                    <div class="text-cyan-400 text-sm uppercase tracking-widest">Quốc gia</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-white mb-2 font-gaming">4.8/5</div>
+                    <div class="text-cyan-400 text-sm uppercase tracking-widest">Đánh giá</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-slate-800 rounded-3xl p-8 md:p-12 border border-slate-700">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4 font-gaming">Gia Nhập <span class="text-cyan-400">Đội Ngũ</span></h2>
+                    <p class="text-slate-400">Bạn có đam mê với game? Hãy gửi lời nhắn cho chúng tôi.</p>
+                </div>
+                
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Họ tên</label>
+                            <input type="text" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors" placeholder="Nguyễn Văn A">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email</label>
+                            <input type="email" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors" placeholder="email@example.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Bạn quan tâm đến?</label>
+                        <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors appearance-none">
+                            <option>Hợp tác phát triển</option>
+                            <option>Ứng tuyển Game Designer</option>
+                            <option>Ứng tuyển Developer</option>
+                            <option>Vấn đề kỹ thuật</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold mb-2">Lời nhắn</label>
+                        <textarea rows="4" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 focus:outline-none focus:border-cyan-500 transition-colors" placeholder="Chia sẻ ý tưởng của bạn..."></textarea>
+                    </div>
+                    <button type="button" class="w-full bg-cyan-500 text-slate-900 font-bold py-4 rounded-xl btn-glow transition-all uppercase tracking-widest" onclick="alert('Cảm ơn bạn! Chúng tôi sẽ phản hồi sớm nhất.')">Gửi lời nhắn</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <div class="w-8 h-8 bg-cyan-500 rounded flex items-center justify-center rotate-45">
+                        <i class="fas fa-gamepad text-white -rotate-45 text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold font-gaming tracking-tighter uppercase">Nexus<span class="text-cyan-400">Studios</span></span>
+                </div>
+                
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 text-xl transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 text-xl transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 text-xl transition-colors"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 text-xl transition-colors"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <p class="text-slate-500 text-sm">
+                    &copy; 2024 Nexus Studios. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky Header Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+    </script>
+</body>
+</html>
