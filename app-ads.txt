@@ -1,3 +1,4 @@
+vungle.com, 617ba86500c0540018bc1728, DIRECT, c107d686becd2d77
 #admob
 google.com, pub-6240957046478882, DIRECT, f08c47fec0942fa0
 
